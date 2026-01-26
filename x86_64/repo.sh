@@ -1,23 +1,12 @@
 #!/usr/bin/env bash
 
-if [ -f ml4w-arch-repo.db ]; then
-    rm ml4w-arch-repo.db
-fi
+# Remove old files
+rm ml4w-arch-repo.*
 
-if [ -f ml4w-arch-repo.files ]; then
-    rm ml4w-arch-repo.files
-fi
-
-if [ -f ml4w-arch-repo.db.tar.zst ]; then
-    rm ml4w-arch-repo.tar.zst
-fi
-
-if [ -f ml4w-arch-repo.files.tar.zst ]; then
-    rm ml4w-arch-repo.files.tar.zst
-fi
-
+# Create the repo database and files file
 repo-add ml4w-arch-repo.db.tar.zst *.pkg.tar.zst 
 
+# Remove Symlinks and rename files
 if [ -f ml4w-arch-repo.db ]; then
     rm ml4w-arch-repo.db
 fi
